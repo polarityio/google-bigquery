@@ -21,7 +21,7 @@ function loadCredentials(options) {
     serviceAccountCredentials = JSON.parse(options.serviceAccount);
     previousServiceAccount = options.serviceAccount;
   } catch (parseError) {
-    throw new Error('Invalid JSON in provided Service Account');
+    throw new Error('Invalid JSON provided for the "Google IAM Service Account Private Key" option');
   }
 
   return {
@@ -50,9 +50,13 @@ async function doLookup(entities, options, cb) {
   }
 
   if (!client || previousServiceAccount !== options.serviceAccount) {
-    client = new BigQuery({
-      credentials: loadCredentials(options)
-    });
+    try {
+      client = new BigQuery({
+        credentials: loadCredentials(options)
+      });
+    } catch (loadError) {
+      return cb(loadError);
+    }
   }
 
   try {

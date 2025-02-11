@@ -96,6 +96,16 @@ Start IP:start_ip, End IP:end_ip, Country Name:country_name
 
 Field to use as the title for each returned document in the details template. This field must be returned by your search query.  Defaults to displaying a Row Number for the returned result.
 
+## Troubleshooting
+
+#### Invalid Private Key
+If you see the following error:
+```
+"code": "ERR_OSSL_UNSUPPORTED",
+"library": "DECODER routines",
+```
+Then you most likely have an invalid or malformed Private Key.  Please ensure that you are copying the entire contents of the JSON file and pasting it into the "Google IAM Service Account Private Key". 
+
 ## Installation Instructions
 
 Installation instructions for integrations are provided on the [PolarityIO GitHub Page](https://polarityio.github.io/).

@@ -1,4 +1,5 @@
 {
+  "polarityIntegrationUuid": "ea94f3f0-e876-11ef-a759-0d25af3e0889",
   "name": "Google BigQuery",
   "acronym": "BIG",
   "description": "Search Google BigQuery resources using Google SQL.",
